@@ -5,6 +5,7 @@ module Sequences
   class Builder
     def initialize(io)
       @sequence_map = {}
+      # Loading one line at a time is slightly slower than .readlines, but uses less memory
       while word = io.gets do
         word.strip!
         word.chars.each_cons(4).map(&:join).each do |sequence|
