@@ -3,9 +3,9 @@ require "sequences/version"
 module Sequences
 
   class Builder
-    def initialize(io) # file or stringIO, read lazily?
+    def initialize(io)
       @sequence_map = {}
-      io.each_line do |word|
+      while word = io.gets do
         word.strip!
         word.chars.each_cons(4).map(&:join).each do |sequence|
           next unless sequence.match(/\A[A-Za-z]{4}\z/)
