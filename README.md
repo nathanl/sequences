@@ -12,7 +12,7 @@ For executable documentation, run `rspec spec --format doc`.
 
 Initialize `Sequence::Builder` with an `IO` object - for example, a `File`, a `StringIO`, or `STDIN`. Then call `#sequences` and/or `#words` to see the analyzed output.
 
-For example, from `rake console`:
+For example, from `bin/console`:
 
 ```ruby
 >> sb = Sequences::Builder.new(StringIO.new("arrows\ncarrots\ngive\nme"), 2)

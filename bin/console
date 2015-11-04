@@ -10,5 +10,6 @@ require "sequences"
 # require "pry"
 # Pry.start
 
+require "stringio"
 require "irb"
 IRB.start
