@@ -39,19 +39,19 @@ describe Sequences do
 
   end
 
-  describe "it only produces sequences of letters A-z" do
+  describe "with words that contain non-letters" do
 
     let(:dictionary) {
-      StringIO.new("10th\ngive".strip)
+      StringIO.new("can't\ngive\n10th\nPB&J\n".strip)
     }
 
-    it "finds the expected sequences" do
+    it "only finds sequences of letters" do
       expect(builder.sequences).to eq(
         %w[give]
       )
     end
 
-    it "finds the expected words" do
+    it "finds their matching words" do
       expect(builder.words).to eq(
         %w[give]
       )
