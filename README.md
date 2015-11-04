@@ -2,7 +2,7 @@
 
 A solution to https://gist.github.com/pedromartinez/7788650
 
-Given lines of words, `Sequence::Builder` will find all N-letter sequences that occur in only one input word, and lets you see the sequences and the word in which each one was found. The default sequence length is 4.
+Given lines of words, `Sequence::Builder` will find all N-letter sequences that occur in only one input word, and lets you see the alphabetized sequences and the word in which each one was found. The default sequence length is 4.
 
 Finds only sequences of letters (`/[A-Za-z]/`) - excluding, for example, numbers, apostrophes, period and ampersands.
 
