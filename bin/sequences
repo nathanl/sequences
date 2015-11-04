@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby 
+
+File.expand_path("../lib", __dir__).tap { |lib_dir|
+  $LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
+}
+
+require "sequences"
+
+builder    = Sequences::Builder.new(STDIN)
+
+output_dir         = ENV.fetch("OUTPUT_DIR", "output")
+sequences_filename = "#{output_dir}/sequences"
+words_filename     = "#{output_dir}/words"
+
+File.open(sequences_filename, "w") do |file| 
+  builder.sequences.each do |sequence|
+    file.puts sequence
+  end
+end
+
+STDERR.puts "wrote sequences to #{sequences_filename}"
+
+File.open(words_filename, "w") do |file| 
+  builder.words.each do |word|
+    file.puts word
+  end
+end
+
+STDERR.puts "wrote words to #{words_filename}"
