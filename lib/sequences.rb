@@ -3,13 +3,13 @@ require "sequences/version"
 module Sequences
 
   class Builder
-    def initialize(io)
+    def initialize(io, sequence_length = 4)
       @sequence_map = {}
       # Loading one line at a time is slightly slower than .readlines, but uses less memory
       while word = io.gets do
         word.strip!
-        word.chars.each_cons(4).map(&:join).each do |sequence|
-          next unless sequence.match(/\A[A-Za-z]{4}\z/)
+        word.chars.each_cons(sequence_length).map(&:join).each do |sequence|
+          next unless sequence.match(/\A[A-Za-z]+\z/)
           if @sequence_map.key?(sequence)
             @sequence_map[sequence] = :multiple
           else
