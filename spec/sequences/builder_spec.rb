@@ -1,9 +1,9 @@
 require 'spec_helper'
 require 'stringio'
 
-describe Sequences do
+describe Sequences::Builder do
 
-  let(:builder) { Sequences::Builder.new(dictionary) }
+  let(:builder) { described_class.new(dictionary) }
 
   describe "with an empty dictionary" do
 
@@ -89,7 +89,7 @@ describe Sequences do
       StringIO.new("hi\nmy\nold\nhiking\nshoe".strip)
     }
 
-    let(:builder) { Sequences::Builder.new(dictionary, 2) }
+    let(:builder) { described_class.new(dictionary, 2) }
 
     it "finds sequences of the given length" do
       expect(builder.sequences).to eq(
