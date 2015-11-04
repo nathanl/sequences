@@ -6,11 +6,12 @@ File.expand_path("../lib", __dir__).tap { |lib_dir|
 
 require "sequences"
 
-builder    = Sequences::Builder.new(STDIN)
-
 output_dir         = ENV.fetch("OUTPUT_DIR", "output")
+sequence_length    = Integer(ENV.fetch("SEQUENCE_LENGTH", 4), 10)
 sequences_filename = "#{output_dir}/sequences"
 words_filename     = "#{output_dir}/words"
+
+builder = Sequences::Builder.new(STDIN, sequence_length)
 
 File.open(sequences_filename, "w") do |file| 
   builder.sequences.each do |sequence|
