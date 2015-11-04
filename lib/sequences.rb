@@ -8,6 +8,7 @@ module Sequences
       io.each_line do |word|
         word.strip!
         word.chars.each_cons(4).map(&:join).each do |sequence|
+          next unless sequence.match(/\A[A-Za-z]{4}\z/)
           if @sequence_map.key?(sequence)
             @sequence_map[sequence] = :multiple
           else

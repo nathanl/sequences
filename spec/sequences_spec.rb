@@ -39,7 +39,24 @@ describe Sequences do
 
   end
 
-  # TODO
-  # - exclude numbers from sequences
+  describe "it only produces sequences of letters A-z" do
+
+    let(:dictionary) {
+      StringIO.new("10th\ngive".strip)
+    }
+
+    it "finds the expected sequences" do
+      expect(builder.sequences).to eq(
+        %w[give]
+      )
+    end
+
+    it "finds the expected words" do
+      expect(builder.words).to eq(
+        %w[give]
+      )
+    end
+
+  end
 
 end
